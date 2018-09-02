@@ -7,7 +7,6 @@ use hyper::service::service_fn_ok;
 use hyper::{Body, Response, Server};
 use std::net::SocketAddr;
 use std::time::{Duration, SystemTime};
-use std::thread;
 
 extern crate clap;
 use clap::{App, Arg, SubCommand};
@@ -39,15 +38,19 @@ fn main() {
             .duration_since(SystemTime::UNIX_EPOCH).unwrap()
             .as_millis() as i128;
         let end = SystemTime::now();
-        let requst_duration = end.duration_since(start).unwrap().as_millis() as i128;
+        let request_duration = end.duration_since(start).unwrap().as_millis() as i128;
 
         let now = SystemTime::now()
             .duration_since(SystemTime::UNIX_EPOCH).unwrap()
             .as_millis() as i128;
 
-        let real_server_time = server_time + requst_duration/2;
+        println!("now: {}ms ", now);
+        println!("server_time: {}ms", server_time);
+        println!("request_duration: {}ms", request_duration);
+
+        let real_server_time = server_time + request_duration/2;
         let time_diff = now - real_server_time;
-        println!("Time diff: {}ms", time_diff);
+        println!("\nTime diff: {}ms", time_diff);
     }
 }
 
@@ -56,7 +59,6 @@ fn request_server_time(path: &str) -> SystemTime {
     let text = body.text().expect("No text");
     let millis =
         u64::from_str_radix(&text, 10).expect("Bad response from server. Not clock sync server");
-    println!("Text: {}", millis);
     let duration_since_epoch = Duration::from_millis(millis);
     SystemTime::UNIX_EPOCH + duration_since_epoch
 }
