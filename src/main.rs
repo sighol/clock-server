@@ -64,9 +64,7 @@ fn request_server_time(path: &str) -> SystemTime {
 fn start_server(addr: SocketAddr) {
     let new_service = || {
         service_fn_ok(|_| {
-            thread::sleep(Duration::from_millis(150));
             let body = format!("{}", get_current_time());
-            thread::sleep(Duration::from_millis(150));
             Response::new(Body::from(body))
         })
     };
