@@ -6,12 +6,14 @@ use hyper::rt::{self, Future};
 use hyper::service::service_fn_ok;
 use hyper::{Body, Response, Server};
 use std::net::SocketAddr;
-use std::time::{Duration, SystemTime};
+use std::time::SystemTime;
 
 extern crate clap;
 use clap::{App, Arg, SubCommand};
 
 extern crate reqwest;
+
+extern crate humantime;
 
 fn main() {
     pretty_env_logger::init();
@@ -35,20 +37,22 @@ fn main() {
         let path = client.value_of("ip").unwrap();
         let start = SystemTime::now();
         let server_time = request_server_time(path)
-            .duration_since(SystemTime::UNIX_EPOCH).unwrap()
+            .duration_since(SystemTime::UNIX_EPOCH)
+            .unwrap()
             .as_millis() as i128;
         let end = SystemTime::now();
         let request_duration = end.duration_since(start).unwrap().as_millis() as i128;
 
         let now = SystemTime::now()
-            .duration_since(SystemTime::UNIX_EPOCH).unwrap()
+            .duration_since(SystemTime::UNIX_EPOCH)
+            .unwrap()
             .as_millis() as i128;
 
         println!("now: {}ms ", now);
         println!("server_time: {}ms", server_time);
         println!("request_duration: {}ms", request_duration);
 
-        let real_server_time = server_time + request_duration/2;
+        let real_server_time = server_time + request_duration / 2;
         let time_diff = now - real_server_time;
         println!("\nTime diff: {}ms", time_diff);
     }
@@ -57,16 +61,16 @@ fn main() {
 fn request_server_time(path: &str) -> SystemTime {
     let mut body = reqwest::get(path).expect("No result");
     let text = body.text().expect("No text");
-    let millis =
-        u64::from_str_radix(&text, 10).expect("Bad response from server. Not clock sync server");
-    let duration_since_epoch = Duration::from_millis(millis);
-    SystemTime::UNIX_EPOCH + duration_since_epoch
+    let time = humantime::parse_rfc3339(&text).expect("Bad time format");
+    time
 }
 
 fn start_server(addr: SocketAddr) {
     let new_service = || {
         service_fn_ok(|_| {
-            let body = format!("{}", get_current_time());
+            let current_time = SystemTime::now();
+            let format = humantime::format_rfc3339_nanos(current_time);
+            let body = format!("{}", format);
             Response::new(Body::from(body))
         })
     };
