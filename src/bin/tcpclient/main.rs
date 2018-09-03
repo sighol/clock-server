@@ -8,12 +8,16 @@ use clap::{App, Arg};
 extern crate clap;
 use chrono::prelude::*;
 
+use std::thread;
+use std::time::Duration;
+
 fn main() {
     let matches = App::new("clock-server")
         .version("1.0.0")
         .author("Sigurd Holsen")
         .about("Check if clock is in sync between computers")
         .arg(Arg::with_name("address").takes_value(true))
+        .arg(Arg::with_name("test").long("--test"))
         .get_matches();
 
     let addr = if let Some(addr) = matches.value_of("address") {
@@ -22,6 +26,20 @@ fn main() {
         "localhost:8080"
     };
 
+    if matches.is_present("test") {
+        let mut i = 0;
+        loop {
+            i += 1;
+            println!("Test: {}", i);
+            ask_compute(addr);
+            thread::sleep(Duration::from_millis(1));
+        }
+    } else {
+        ask_compute(addr);
+    }
+}
+
+pub fn ask_compute(addr: &str) {
     match TcpStream::connect(addr) {
         Ok(mut stream) => {
             println!("Connected to {}", addr);
@@ -78,11 +96,10 @@ pub fn compute_diff(
 
 fn format_duration(dur: chrono::Duration) -> String {
     let is_neg = dur < chrono::Duration::zero();
-    let dur = if is_neg { -dur } else { dur };
+    let (dur, sign) = if is_neg { (-dur, "-") } else { (dur, "") };
     let dur = dur.to_std().unwrap();
     let secs = dur.as_secs() as f64 / 1_000.0;
     let nanos: f64 = dur.subsec_nanos() as f64 / 1_000_000.0;
     let result = secs + nanos;
-    let sign = if is_neg { "-" } else { "" };
     format!("{}{}ms", sign, result)
 }
