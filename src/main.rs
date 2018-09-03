@@ -6,6 +6,7 @@ use hyper::rt::{self, Future};
 use hyper::service::service_fn_ok;
 use hyper::{Body, Response, Server};
 use std::net::SocketAddr;
+use std::str::FromStr;
 use std::time::SystemTime;
 
 extern crate clap;
@@ -21,22 +22,30 @@ fn main() {
         .version("1.0.0")
         .author("Sigurd Holsen")
         .about("Check if clock is in sync between computers")
-        .subcommand(SubCommand::with_name("server").about("start server"))
         .subcommand(
+            SubCommand::with_name("server")
+                .about("start server")
+                .arg(Arg::with_name("addr").takes_value(true)),
+        ).subcommand(
             SubCommand::with_name("client")
                 .about("start client")
                 .arg(Arg::with_name("ip").required(true).takes_value(true)),
         ).get_matches();
 
     if let Some(_server) = matches.subcommand_matches("server") {
-        let addr = ([127, 0, 0, 1], 3001).into();
+        let addr = if let Some(conf_addr) = _server.value_of("addr") {
+            SocketAddr::from_str(conf_addr).expect("Bad socket address")
+        } else {
+            ([0, 0, 0, 0], 3001).into()
+        };
         start_server(addr);
     }
 
     if let Some(client) = matches.subcommand_matches("client") {
         let path = client.value_of("ip").unwrap();
         let start = SystemTime::now();
-        let server_time = request_server_time(path)
+        let server_time_raw = request_server_time(path);
+        let server_time = server_time_raw
             .duration_since(SystemTime::UNIX_EPOCH)
             .unwrap()
             .as_millis() as i128;
@@ -48,8 +57,14 @@ fn main() {
             .unwrap()
             .as_millis() as i128;
 
-        println!("now: {}ms ", now);
-        println!("server_time: {}ms", server_time);
+        println!(
+            "now: {}ms ",
+            humantime::format_rfc3339_nanos(SystemTime::now())
+        );
+        println!(
+            "server_time: {}ms",
+            humantime::format_rfc3339_nanos(server_time_raw)
+        );
         println!("request_duration: {}ms", request_duration);
 
         let real_server_time = server_time + request_duration / 2;
