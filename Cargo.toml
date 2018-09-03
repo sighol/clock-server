@@ -4,10 +4,4 @@ version = "0.1.0"
 authors = ["Sigurd Andreas Holsen <Sigurd.Andreas.Holsen@km.kongsberg.com>"]
 
 [dependencies]
-# iron = "*"
-reqwest = "*"
-time = "*"
-hyper = "0.12"
-pretty_env_logger = "*"
-clap = "*"
-humantime = "*"
+chrono = "*"

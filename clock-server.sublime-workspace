@@ -1,0 +1,707 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rece",
+				"receive_time_ms"
+			],
+			[
+				"serve",
+				"server_time"
+			],
+			[
+				"recei",
+				"receive_time"
+			],
+			[
+				"EP",
+				"UNIX_EPOCH"
+			],
+			[
+				"requ",
+				"requst_duration"
+			],
+			[
+				"duration",
+				"requst_duration"
+			],
+			[
+				"ser",
+				"server_time_duration"
+			],
+			[
+				"UNI",
+				"UNIX_EPOCH"
+			],
+			[
+				"dur",
+				"duration_since"
+			],
+			[
+				"serv",
+				"server_time"
+			],
+			[
+				"dura",
+				"duration_since_epoch"
+			],
+			[
+				"U",
+				"UNIX_EPOCH"
+			],
+			[
+				"sub",
+				"subcommand_matches"
+			],
+			[
+				"auto",
+				"autostart"
+			],
+			[
+				"UP",
+				"UpdateServerConfiguration"
+			],
+			[
+				"Updat",
+				"UpdateServerConfiguration"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/Dev/Workspace/clock-server/src/bin/tcp/main.rs",
+			"settings":
+			{
+				"buffer_size": 1480,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Dev/Workspace/clock-server/src/bin/tcpclient/main.rs",
+			"settings":
+			{
+				"buffer_size": 1709,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Dev/Workspace/clock-server/src/common.rs",
+			"settings":
+			{
+				"buffer_size": 989,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Dev/Workspace/clock-server/src/main.rs",
+			"settings":
+			{
+				"buffer_size": 3455,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"checkli",
+				"Set Syntax: Checklist"
+			],
+			[
+				"markdow",
+				"Set Syntax: Markdown"
+			],
+			[
+				"c",
+				"Set Syntax: C++"
+			],
+			[
+				"c#",
+				"Set Syntax: C#"
+			],
+			[
+				"xaml",
+				"Set Syntax: XAML"
+			],
+			[
+				"bash",
+				"Set Syntax: Bourne Again Shell (bash)"
+			],
+			[
+				"pacin",
+				"Package Control: Install Package"
+			],
+			[
+				"bath",
+				"Set Syntax: Batch File"
+			],
+			[
+				"minim",
+				"View: Toggle Minimap"
+			],
+			[
+				"sync",
+				"Sync Settings: Upload"
+			],
+			[
+				"pac",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 165.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Dev/Workspace/clock-server",
+		"/C/Dev/Workspace/clock-server/src"
+	],
+	"file_history":
+	[
+		"/C/Source/KCSMP-Aut/MergeMimicHelpTools/FriendlyPageConfigFormat/bin/Debug/after.xml",
+		"/C/Users/SigHo/OneDrive - KONGSBERG MARITIME AS/Reiser/2018-08 Koreatur/Plan oppdatering.checklist",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/ClientConfig/config/os/A-TS3.kmosx",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/ClientConfig/config/os/A-TS5.kmosx",
+		"/C/Source/KCSMP-Aut/aut-tool-installer/Source/build.fsx",
+		"/C/Source/KCSMP-Aut/aut-tool-installer/Source/build.bat",
+		"/C/Source/KCSMP-Aut/MergeMimicHelpTools/FriendlyPageConfigFormat/bin/Debug/rp-dp.xml",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/AIMImport/Project-P1/ImportConfig/Settings.ini",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/ClientConfig/config/views/mimic/mimics/files/41b30d9a-e468-4574-8334-cede7f28a9fc.xaml",
+		"/C/Source/KCSMP-Aut/aut-tool-installer/Source/KCSConfigurationDistributor/setup.iss",
+		"/C/Source/KCSMP-Aut/aut-tool-installer/Source/PrepareInstall/Program.cs",
+		"/C/Source/KCSMP-Aut/aut-tool-installer/Source/ConfigurationLib/InstallerSettings.cs",
+		"/C/Source/KCSMP-Aut/aut-tool-installer/Source/KCSConfigurationDistributor/KCSConfigurationDistributor.Tests/KM.Tools.KCSConfigurationDistributor.Tests.csproj",
+		"/C/Source/KCSMP-Aut/aut-tool-installer/Source/KCSConfigurationDistributor/KCSConfigurationDistributor/KM.Tools.KCSConfigurationDistributor.csproj",
+		"/C/Source/KCSMP-Aut/aut-tool-aimimport/Source/build.fsx",
+		"/C/Source/KCSMP-Aut/aut-tool-installer/Source/KCSConfigurationDistributor/KCSConfigurationDistributor.Executable/KCSConfigurationDistributor.Executable.csproj",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/ClientConfig/config/views/mimic/mimics/files/a9fba02a-7213-414c-ac27-f18fb688ce57.xaml",
+		"/C/Users/SigHo/Downloads/MapKCSEngClient, v2.2.zip/MapKCSEngClient, v2.2/MapKCSEngClient/ReadMe.txt",
+		"/C/Users/SigHo/AppData/Roaming/Sublime Text 3/Packages/User/Checklist.sublime-syntax",
+		"/C/Source/KCSMP-Aut/js-merge-alarmcategories/MergeAlarmCategories/MergeAlarmCategories/deploy-to-usb.bat",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/status.sh",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/files.diff",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/diff",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/ClientConfig/ClientConfigExtracterTR1212.cmd",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/diff.status",
+		"/C/Source/KCSMP-Aut/js-merge-alarmcategories/MergeAlarmCategories/MergeAlarmCategories/AlarmTypeLookup.cs",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/ClientConfig/config/views/mimic/mimics/files/1f7ea3e8-b49f-4f74-9b50-67e9d8293c0c.xaml",
+		"/C/Source/KCSMP-Aut/MergeMimicHelpTools/FriendlyPageConfigFormat/bin/Debug/output.xml",
+		"/C/Source/KCSMP-Aut/MergeMimicHelpTools/Common/PageConfiguration.cs",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/ClientConfig/config/views/navigator/pages/pages/pages-clientconfig.xml",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/ClientConfig/config/views/navigator/pages/pagehierarchies/80-FE-PDCS-feltoversikt_O+uOHnqY0c.xml",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/ClientConfig/config/views/navigator/pages/pagegroups/80-FE-PDCS-feltoversikt_O+uOHnqY0c.xml",
+		"/C/Source/KCSMP-Aut/MergeMimicHelpTools/FriendlyPageConfigFormat/bin/Debug/run.bat",
+		"/C/Users/SigHo/Downloads/MapKCSEngClient, v2.2.zip/MapKCSEngClient, v2.2/MapKCSEngClient/Setup_MapKCSEngClient.bat",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/ClientConfig/config/os/x-local-client.kmosx",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-p1/ClientConfig/config/os/PageSync.kmosx",
+		"/C/Dev/wiki/Csharp/capture-console.md",
+		"/C/Users/SigHo/AppData/Local/Temp/7zO0EA3C398/F#.tmLanguage",
+		"/C/Users/SigHo/AppData/Roaming/Sublime Text 3/Installed Packages/F#.sublime-package",
+		"/C/Users/SigHo/AppData/Local/Temp/7zOC76F25BA/TOML.sublime-syntax",
+		"/C/Users/SigHo/AppData/Local/Temp/7zO8A04CB50/Monokai.sublime-color-scheme",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/ClientConfig/config/views/operationdialog/layouts/JSCB-16Type.xml",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/dialogs.status",
+		"/C/Users/SigHo/Documents/My Received Files/OMM.Configuration.MethodInvocationRequest_Error.xml",
+		"/C/Users/SigHo/Documents/My Received Files/OMM.Configuration.MethodInvocationResponse_Error.xml",
+		"/C/Users/SigHo/Documents/My Received Files/ForSigurd.txt",
+		"/C/Users/SigHo/.gitconfig",
+		"/C/Source/KCSMP-Aut/js-opdialogs/.gitignore",
+		"/C/Source/KCSMP-Aut/js-opdialogs/JSDialogs/KCSPOasc_upcaType.xml",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/ClientConfig/config/os/PageSync.kmosx",
+		"/C/Source/KCSMP-Aut/js-opdialogs/combine.bat",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/ClientConfig/config/os/D-TS2.kmosx",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/ClientConfig/config/os/D-TS1.kmosx",
+		"/C/Source/KCSMP-Aut/js-opdialogs/lay",
+		"/C/Users/SigHo/AppData/Local/Temp/7zO48C5AA6E/Default.sublime-theme",
+		"/C/Users/SigHo/AppData/Roaming/Sublime Text 3/Packages/User/Checklist.yaml",
+		"/C/Dev/wiki/km/p1-presentasjon.md",
+		"/C/Users/SigHo/OneDrive - KONGSBERG MARITIME AS/Reiser/2018-08 Koreatur/Plan oppdatering.txt",
+		"/C/Users/SigHo/Downloads/opdialogs/combine.bat",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/dialog.diff",
+		"/C/Users/SigHo/AppData/Local/Kongsberg Maritime/LocalInstaller/server.json",
+		"/C/Users/SigHo/AppData/Local/Kongsberg Maritime/LocalInstaller/config.txt",
+		"/C/Source/KCSMP-Aut/aut-tool-installer/Source/LocalInstaller/bin/Debug/system-config.json",
+		"/C/KCSMP_Config/system-config.json",
+		"/C/Users/SigHo/AppData/Local/Kongsberg Maritime/LocalInstaller/client.json",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/status",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/AIMImport/Project-RP/ImportConfig/OverridePOType/RP system82-84+profinet.xml",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/AIMImport/Project-RP/ImportConfig/OverridePOType/RP System 85.xml",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/AIMImport/Project-RP/ImportConfig/OverridePOType/RP System 80.xml",
+		"/C/Source/KCSMP-Aut/aut-tool-aimimport/Source/KM.AIMImport.Engineering.IntegrationTests/SigurdScript.cs",
+		"/C/Dev/wiki/km/johan-sverdrup.md",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/AIMImport/Project-RP/ImportConfig/OverridePOType/RP safety MA overrides.xml",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/AIMImport/Project-RP/ImportConfig/TypicalRules.xml",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/AIMImport/Project-RP/ImportConfig/Settings.ini",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/AIMImport/Project-RP/ImportConfig/OverridePOType/RP tillegg.xml",
+		"/C/Source/KCSMP-Aut/aut-tool-aimimport/Source/KM.AIMImport.Engineering.TestUtils/Xml/2-SystemSmall.xml",
+		"/C/Source/KCSMP-Aut/aut-tool-aimimport/Source/KM.AIMImport.Engineering.TestUtils/Xml/TwoProjectXmlsWithSameSetupIdTest/project1.xml",
+		"/C/Source/KCSMP-Aut/aut-tool-aimimport/Source/KM.AIMImport.Engineering.TestUtils/Xml/TwoProjectXmlsWithSameSetupIdTest/project2.xml",
+		"/C/Source/KCSMP-Aut/aut-tool-aimimport/Source/KM.AIMImport.Engineering.TestUtils/Xml/TwoProjectXmlsWithSameSetupIdTest/system.xml",
+		"/C/Source/KCSMP-Aut/aut-tool-aimimport/logs.txt",
+		"/C/Source/KCSMP-Aut/aut-tool-aimimport/Source/KM.AIMImport.Engineering.TestUtils/Xml/TwoProjectXmlsWithSameSetupIdTest/2-SmallProject1.xml",
+		"/C/Source/KCSMP-Aut/aut-tool-aimimport/Source/KM.AIMImport.Engineering.TestUtils/Xml/TwoProjectXmlsWithSameSetupIdTest/2-SmallProject2.xml",
+		"/C/Dev/ProcessObjectsJohanSverdrup DP.json",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/ClientConfig/config/views/operationdialog/layouts/KCSPOOnOffValve_scd_sbvType.xml",
+		"/C/Source/KCSMP/server-lib-config-api/Source/KM.Tools.Omm.Configuration/Util/RecursiveDelete/GetReferencesMethodService.cs",
+		"/C/Source/KCSMP/server-lib-config-api/Source/KM.Tools.Omm.Configuration/Util/RecursiveDelete/MethodCallHelper.cs",
+		"/C/Source/KCSMP/server-lib-config-api/Source/KM.Tools.Omm.Configuration/Util/RecursiveDelete/RecursiveDelete.cs",
+		"/C/Dev/ProcessObjectsJohanSverdrup RP.json",
+		"/C/Source/KCSMP/client-tool-misc/ReSharper/GlobalSettingsStorage.DotSettings",
+		"/C/Source/KCSMP-Aut/project-johansverdrup/ServerConfig/os/config.kmosx",
+		"/C/ProgramData/Kongsberg/AimLev/DP/pc6740935/Run/bin/tools/StartAux2.bat",
+		"/C/ProgramData/Kongsberg/AimLev/DP/pc6740935/Run/bin/tools/StartAux2 - original.bat",
+		"/C/ProgramData/Kongsberg/AimLev/DP/pc6740935/Run/bin/tools/StartAux1.bat",
+		"/C/ProgramData/Kongsberg/AimLev/RP/pc6740935/Run/bin/tools/StartAux2.bat",
+		"/C/Dev/wiki/Csharp/fake.md",
+		"/C/Dev/wiki/Csharp/linqpad.md",
+		"/C/Source/KCSMP-Aut/aut-tool-aimimport/Source/Configs/default/os/server.kmosx",
+		"/C/Source/KCSMP-Aut/Config-prod/ClientConfig/config/os/PageSync.kmosx",
+		"/C/Users/SigHo/Downloads/fiidh.xml",
+		"/C/Source/KCSMP-Aut/Config-prod/ClientConfig/config/os/DeliveryBase.kmosx",
+		"/C/Source/KCSMP-Aut/project-brakketest/ClientConfig/config/os/x-local-tr1212.kmosx",
+		"/C/Source/KCSMP-Aut/aut-app-pagesynchronizer/sync-to-appdata.bat",
+		"/C/Source/KCSMP-Aut/aut-app-pagesynchronizer/Source/PageSynchronizer/ObjectModel/ViewModel.cs",
+		"/C/Source/KCSMP-Aut/aut-app-pagesynchronizer/Source/PageSynchronizer/ObjectModel/PageBase.cs",
+		"/C/Users/SigHo/Desktop/output.txt",
+		"/C/Dev/ProcessObjectsJohanSverdrup.json",
+		"/C/Source/KCSMP-Aut/aut-tool-aimimport/Source/FindObjectTypesConnectedToSymbols/bin/Debug/my-output",
+		"/C/Source/KCSMP-Aut/aut-tool-altermimics/SymbolTypeUsageAnalyzer/SymbolTypeUsageAnalyzer.csproj",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/ClientConfig/config/views/mimic/symbols/Definitions/ProcessEquipment/Agitator.xml",
+		"/C/Source/KCSMP-Aut/project-johansverdrup-mirrorlab/ClientConfig/config/views/mimic/mimics/files/00d64c3c-f882-87f3-d6e7-3feb8adcbd10.xaml",
+		"/C/Users/SigHo/Documents/My Received Files/TilSigurd.txt",
+		"/C/Deliveries/JohanSverdrup/DP/pc6740935/CE_LEV/FG/Online/DV111A_Online_Typicals.xml",
+		"/C/Users/SigHo/bin/install-backup",
+		"/C/Users/SigHo/bin/install-backup-win.ps1",
+		"/C/intercom_config.txt",
+		"/C/Users/SigHo/.vimrc",
+		"/C/Source/KCSMP-Aut/aut-app-pagesynchronizer/docs/changelog.md",
+		"/C/Source/KCSMP-Aut/aut-app-pagesynchronizer/docs/docs/index.md",
+		"/C/Source/KCSMP-Aut/project-brakketest/ServerConfig/config/os/server.kmosx",
+		"/C/Users/SigHo/Downloads/2018-08-09 ce_lev-files-corruption-offshore/CE_LEV/FG/Online/Aut_DP DC113C_Online_Typicals.xml",
+		"/C/Users/SigHo/Downloads/2018-08-09 ce_lev-files-corruption-offshore/CE_LEV/FG/Online/Aut_DP DV111A_Online_Typicals.xml",
+		"/C/Users/SigHo/Documents/My Received Files/CE_LEV_DP/CE_LEV/FG/Online/DV111A_Online_Typicals.xml",
+		"/C/Source/KCSMP-Aut/aut-app-pagesynchronizer/Source/PageSynchronizer.Executable/Program.cs",
+		"/C/Source/KCSMP-Aut/aut-app-pagesynchronizer/Source/PageSynchronizer.Executable/Repl.cs",
+		"/C/Users/SigHo/bin2/git-tfs-ssh.sh",
+		"/C/Source/KCSMP-Aut/project-brakketest/ClientConfig/config/os/x-local-page-sync.kmosx",
+		"/C/Source/KCSMP-Aut/project-brakketest/ClientConfig/config/os/Settings.kmosx",
+		"/C/Source/KCSMP-Aut/project-brakketest/ClientConfig/config/os/client-packages.kmosx"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"now_ms",
+			"request_duration",
+			"duration_str",
+			"status",
+			"P1 Gassfyrt varmer b",
+			"P1 Gassfyrt varmer a",
+			"..\\packag",
+			"..\\",
+			".\\packages",
+			"requst_duration",
+			"{\n",
+			"_client",
+			"FE OLjetog oversikt",
+			"ClinetConfig",
+			"before-cbdata",
+			" <PageGroupOrder ScreenId",
+			"er ScreenId=\"",
+			"Page",
+			"M ClientConfig/config/views/mimic/mim",
+			"ClientConfig/config/views/mimic/mimics/files/",
+			"M ClientConfig/config/views/mimic/mimics/files/",
+			"[PT] ",
+			"[P]",
+			"[PARTIAL",
+			"ServerUrl",
+			"yellow2",
+			"entity.name",
+			"ok",
+			"message.",
+			"MappingUserName",
+			"= new AdvancedF",
+			"Berget",
+			"flere",
+			"rm",
+			"??",
+			"common",
+			"PCK_DP",
+			"Delete(deleter, ",
+			"FunctionModule",
+			"Name",
+			"KCSPOPSDanalogInputType",
+			"KCSPOPSDanalogInputType_KCSCOsd_in2typeLLMappingSet1",
+			"KCSPOPSDanalogInputType_KCSCOsd_in2typeHHMappingSet1",
+			"ResolvablePath",
+			"NS4|Opaque|0x05054F42040036B39CF87E186082876C9F2F",
+			"<TaskSta",
+			"B",
+			"getProcessOutput",
+			"sd_main",
+			"ring",
+			"FromForm",
+			"ring",
+			"cookie",
+			"JSLV-01Type",
+			"*.xaml",
+			"mimic",
+			"10.122",
+			"Console.WriteLine",
+			"will",
+			"Segment_DP",
+			"3f48af4d-04ab-46e8-ae24-6df6f1d97154",
+			"mimic:3f48af4d-04ab-46e8-ae24-6df6f1d97154",
+			"d7488719-2e2b-4e4b-8100-8d06f9dd242c",
+			"c4148626-dbd9-4559-965b-3a20a8686635",
+			"6aa4d7a8-e5eb-4856-8ac7-563f12ca7b1f",
+			"110953bc-2c12-4f2b-b0c0-e55d39f4c0c1",
+			"0ec9cbb4-1c7d-40ae-9bc0-d23f42cd8296",
+			"4ecfc321-dbd7-4bc7-95e2-d812b3c1c55b",
+			"6aa4d7a8-e5eb-4856-8ac7-563f12ca7b1f",
+			"4ecfc321-dbd7-4bc7-95e2-d812b3c1c55b",
+			"110953bc-2c12-4f2b-b0c0-e55d39f4c0c1",
+			"0ec9cbb4-1c7d-40ae-9bc0-d23f42cd8296",
+			"c4148626-dbd9-4559-965b-3a20a8686635",
+			"4ecfc321-dbd7-4bc7-95e2-d812b3c1c55b",
+			"110953bc-2c12-4f2b-b0c0-e55d39f4c0c1",
+			"0ec9cbb4-1c7d-40ae-9bc0-d23f42cd8296",
+			"c4148626-dbd9-4559-965b-3a20a8686635"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/Dev/Workspace/clock-server/src/bin/tcp/main.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1480,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								145,
+								145
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 674,
+								"count": 69,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/Rust/Rust.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Dev/Workspace/clock-server/src/bin/tcpclient/main.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1709,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								88,
+								88
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 1049,
+								"count": 72,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/Rust/Rust.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 56.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Dev/Workspace/clock-server/src/common.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 989,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								989,
+								989
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 16,
+								"count": 44,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"open_with_edit": true,
+							"syntax": "Packages/Rust/Rust.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Dev/Workspace/clock-server/src/main.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3455,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								29,
+								0
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 463,
+								"count": 149,
+								"modified": true,
+								"selection": true,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"syntax": "Packages/Rust/Rust.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 50.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "clock-server.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"80-FE",
+				"views\\navigator\\pages\\pagehierarchies\\80-FE-PDCS-feltoversikt_O+uOHnqY0c.xml"
+			],
+			[
+				"page",
+				"views\\navigator\\pages\\pages\\pages-clientconfig.xml"
+			],
+			[
+				"GetReferen",
+				"Source\\KM.Tools.Omm.Configuration\\Util\\RecursiveDelete\\GetReferencesMethodService.cs"
+			],
+			[
+				"MethodHelper",
+				"Source\\KM.Tools.Omm.Configuration\\Util\\RecursiveDelete\\MethodCallHelper.cs"
+			],
+			[
+				"Recurs",
+				"Source\\KM.Tools.Omm.Configuration\\Util\\RecursiveDelete\\RecursiveDelete.cs"
+			],
+			[
+				"asc_upca",
+				"KCSPOasc_upcaType.xml"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 209.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
