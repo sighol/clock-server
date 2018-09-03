@@ -68,11 +68,12 @@ pub fn compute_diff(
     let duration = receive_time - send_time;
     println!("now:         {}", receive_time);
     println!("server time: {}", server_time);
+    println!("send time: {}", duration);
 
     let real_server_time = server_time + duration / 2;
 
     let time_diff = real_server_time - receive_time;
-    println!("time diff: {}ms", time_diff.num_milliseconds());
+    println!("time diff: {}", time_diff);
 }
 
 // pub fn compute_diff(send_time: SystemTime, receive_time: SystemTime, server_time: SystemTime) {
