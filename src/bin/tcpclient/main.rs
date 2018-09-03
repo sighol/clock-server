@@ -2,13 +2,27 @@ use std::io::{Read, Write};
 use std::net::TcpStream;
 use std::str::from_utf8;
 
-
 extern crate chrono;
+use clap::{App, Arg};
+
+extern crate clap;
 use chrono::prelude::*;
 
 fn main() {
-    let addr = "localhost:8080";
-    match TcpStream::connect("localhost:8080") {
+    let matches = App::new("clock-server")
+        .version("1.0.0")
+        .author("Sigurd Holsen")
+        .about("Check if clock is in sync between computers")
+        .arg(Arg::with_name("address").takes_value(true))
+        .get_matches();
+
+    let addr = if let Some(addr) = matches.value_of("address") {
+        addr
+    } else {
+        "localhost:8080"
+    };
+
+    match TcpStream::connect(addr) {
         Ok(mut stream) => {
             println!("Connected to {}", addr);
 
@@ -22,8 +36,6 @@ fn main() {
                 Ok(n) => {
                     if true {
                         let end = Utc::now();
-
-
 
                         let read_slice = &data[0..n];
                         let mut vec = vec![];
@@ -48,18 +60,20 @@ fn main() {
     }
 }
 
-pub fn compute_diff(send_time: DateTime<Utc>, receive_time: DateTime<Utc>, server_time: DateTime<Utc>) {
+pub fn compute_diff(
+    send_time: DateTime<Utc>,
+    receive_time: DateTime<Utc>,
+    server_time: DateTime<Utc>,
+) {
     let duration = receive_time - send_time;
     println!("now:         {}", receive_time);
     println!("server time: {}", server_time);
 
-    let real_server_time = server_time + duration/2;
+    let real_server_time = server_time + duration / 2;
 
     let time_diff = real_server_time - receive_time;
     println!("time diff: {}ms", time_diff.num_milliseconds());
 }
-
-
 
 // pub fn compute_diff(send_time: SystemTime, receive_time: SystemTime, server_time: SystemTime) {
 //     let request_duration_ms = receive_time.duration_since(send_time).unwrap().as_millis() as i128;

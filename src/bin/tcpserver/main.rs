@@ -5,6 +5,9 @@ use std::net::{TcpListener, TcpStream};
 use std::str::FromStr;
 use std::thread;
 
+extern crate clap;
+use clap::{App, Arg};
+
 extern crate chrono;
 use chrono::prelude::*;
 
@@ -18,7 +21,6 @@ fn handle_client(mut stream: TcpStream) {
                     // connection was closed
                     break;
                 }
-
 
                 let message = format!("{}", Utc::now().to_rfc3339());
 
@@ -35,7 +37,20 @@ fn handle_client(mut stream: TcpStream) {
 }
 
 fn main() {
-    let addr: SocketAddr = SocketAddr::from_str("127.0.0.1:8080").expect("Invalid address");
+    let matches = App::new("clock-server")
+        .version("1.0.0")
+        .author("Sigurd Holsen")
+        .about("Check if clock is in sync between computers")
+        .arg(Arg::with_name("address").takes_value(true))
+        .get_matches();
+
+    let addr = if let Some(addr) = matches.value_of("address") {
+        addr
+    } else {
+        "localhost:8080"
+    };
+
+    let addr: SocketAddr = SocketAddr::from_str(addr).expect("Invalid address");
     println!("Starting tcp server on {}", addr);
     let listener = TcpListener::bind(addr).unwrap();
 

@@ -5,3 +5,4 @@ authors = ["Sigurd Andreas Holsen <Sigurd.Andreas.Holsen@km.kongsberg.com>"]
 
 [dependencies]
 chrono = "*"
+clap = "*"
