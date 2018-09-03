@@ -13,6 +13,11 @@ use chrono::prelude::*;
 
 fn handle_client(mut stream: TcpStream) {
     // read 20 bytes at a time from stream echoing back to stream
+    let source = stream
+        .peer_addr()
+        .map(|addr| format!("{}", addr))
+        .unwrap_or(String::from("unknown"));
+    println!("Received connection from {}", source);
     loop {
         let mut read = [0; 10];
         match stream.read(&mut read) {
