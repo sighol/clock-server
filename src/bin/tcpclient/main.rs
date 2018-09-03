@@ -99,8 +99,8 @@ fn format_duration(dur: chrono::Duration) -> String {
     let is_neg = dur < chrono::Duration::zero();
     let (dur, sign) = if is_neg { (-dur, "-") } else { (dur, "") };
     let dur = dur.to_std().unwrap();
-    let secs = dur.as_secs() as f64 / 1_000.0;
+    let ms = dur.as_secs() as f64 * 1_000.0;
     let nanos: f64 = dur.subsec_nanos() as f64 / 1_000_000.0;
-    let result = secs + nanos;
+    let result = ms + nanos;
     format!("{}{}ms", sign, result)
 }
