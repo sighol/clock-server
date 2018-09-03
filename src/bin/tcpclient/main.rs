@@ -68,12 +68,24 @@ pub fn compute_diff(
     let duration = receive_time - send_time;
     println!("now:         {}", receive_time);
     println!("server time: {}", server_time);
-    println!("send time: {}", duration);
+    println!("send time: {}", format_duration(duration));
 
     let real_server_time = server_time + duration / 2;
 
     let time_diff = real_server_time - receive_time;
-    println!("time diff: {}", time_diff);
+
+    println!("time diff: {}", format_duration(time_diff));
+}
+
+fn format_duration(dur: chrono::Duration) -> String {
+    let is_neg = dur < chrono::Duration::zero();
+    let dur = if is_neg { -dur } else { dur };
+    let dur = dur.to_std().unwrap();
+    let secs = dur.as_secs() as f64 / 1_000.0;
+    let nanos: f64 = dur.subsec_nanos() as f64 / 1_000_000.0;
+    let result = secs + nanos;
+    let sign = if is_neg { "-" } else { "" };
+    format!("{}{}ms", sign, result)
 }
 
 // pub fn compute_diff(send_time: SystemTime, receive_time: SystemTime, server_time: SystemTime) {

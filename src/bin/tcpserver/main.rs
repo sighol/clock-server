@@ -47,11 +47,11 @@ fn main() {
     let addr = if let Some(addr) = matches.value_of("address") {
         addr
     } else {
-        "localhost:8080"
+        "127.0.0.1:8080"
     };
 
-    let addr: SocketAddr = SocketAddr::from_str(addr).expect("Invalid address");
     println!("Starting tcp server on {}", addr);
+    let addr: SocketAddr = SocketAddr::from_str(addr).expect("Invalid address");
     let listener = TcpListener::bind(addr).unwrap();
 
     for stream in listener.incoming() {
