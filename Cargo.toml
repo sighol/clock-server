@@ -1,7 +1,8 @@
 [package]
 name = "clock-server"
 version = "0.1.0"
-authors = ["Sigurd Andreas Holsen <Sigurd.Andreas.Holsen@km.kongsberg.com>"]
+authors = ["Sigurd Holsen <sighol@gmail.com>"]
+description = "Simple TCP app that checks that server and client have the same clock"
 
 [dependencies]
 chrono = "*"

@@ -12,19 +12,20 @@ use std::thread;
 use std::time::Duration;
 
 fn main() {
-    let matches = App::new("clock-server")
-        .version("1.0.0")
-        .author("Sigurd Holsen")
-        .about("Check if clock is in sync between computers")
-        .arg(Arg::with_name("address").takes_value(true))
+    let matches = App::new(env!("CARGO_PKG_NAME"))
+        .version(env!("CARGO_PKG_VERSION"))
+        .author(env!("CARGO_PKG_AUTHORS"))
+        .about(env!("CARGO_PKG_DESCRIPTION"))
+        .arg(
+            Arg::with_name("address")
+                .takes_value(true)
+                .index(1)
+                .help("TCP address to server"),
+        )
         .arg(Arg::with_name("test").long("--test"))
         .get_matches();
 
-    let addr = if let Some(addr) = matches.value_of("address") {
-        addr
-    } else {
-        "localhost:8080"
-    };
+    let addr = matches.value_of("address").unwrap_or("127.0.0.1:8080");
 
     if matches.is_present("test") {
         let mut i = 0;

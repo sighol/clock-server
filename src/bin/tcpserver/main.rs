@@ -11,13 +11,15 @@ use clap::{App, Arg};
 extern crate chrono;
 use chrono::prelude::*;
 
-fn handle_client(mut stream: TcpStream) {
-    // read 20 bytes at a time from stream echoing back to stream
+fn handle_client(mut stream: TcpStream, is_verbose: bool) {
     let source = stream
         .peer_addr()
         .map(|addr| format!("{}", addr))
         .unwrap_or(String::from("unknown"));
-    println!("Received connection from {}", source);
+    if is_verbose {
+        println!("Received connection from {}", source);
+    }
+
     loop {
         let mut read = [0; 10];
         match stream.read(&mut read) {
@@ -35,26 +37,28 @@ fn handle_client(mut stream: TcpStream) {
                     .expect("Could not write response");
             }
             Err(err) => {
-                panic!(err);
+                panic!("Failed to read client stream from {}. {}", source, err);
             }
         }
     }
 }
 
 fn main() {
-    let matches = App::new("clock-server")
-        .version("1.0.0")
-        .author("Sigurd Holsen")
-        .about("Check if clock is in sync between computers")
-        .arg(Arg::with_name("address").takes_value(true))
+    let matches = App::new(env!("CARGO_PKG_NAME"))
+        .version(env!("CARGO_PKG_VERSION"))
+        .author(env!("CARGO_PKG_AUTHORS"))
+        .about(env!("CARGO_PKG_DESCRIPTION"))
+        .arg(
+            Arg::with_name("address")
+                .takes_value(true)
+                .index(1)
+                .help("TCP address to client"),
+        )
+        .arg(Arg::with_name("verbose").short("v").long("verbose"))
         .get_matches();
 
-    let addr = if let Some(addr) = matches.value_of("address") {
-        addr
-    } else {
-        "127.0.0.1:8080"
-    };
-
+    let addr = matches.value_of("address").unwrap_or("127.0.0.1:8080");
+    let is_verbose = matches.is_present("verbose");
     println!("Starting tcp server on {}", addr);
     let addr: SocketAddr = SocketAddr::from_str(addr).expect("Invalid address");
     let listener = TcpListener::bind(addr).unwrap();
@@ -63,7 +67,7 @@ fn main() {
         match stream {
             Ok(stream) => {
                 thread::spawn(move || {
-                    handle_client(stream);
+                    handle_client(stream, is_verbose);
                 });
             }
             Err(_) => {
