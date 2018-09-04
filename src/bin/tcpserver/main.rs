@@ -20,7 +20,6 @@ fn main() {
 
     let addr = matches.value_of("address").unwrap_or("127.0.0.1:8080");
     let is_verbose = matches.is_present("verbose");
-    println!("Starting tcp server on {}", addr);
 
     server::run_server(addr, is_verbose);
 }

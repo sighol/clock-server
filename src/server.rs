@@ -10,6 +10,7 @@ extern crate chrono;
 use chrono::prelude::*;
 
 pub fn run_server(addr: &str, is_verbose: bool) {
+    println!("Starting tcp server on {}", addr);
     let addr: SocketAddr = SocketAddr::from_str(addr).expect("Invalid address");
     let listener = TcpListener::bind(addr).unwrap();
 

@@ -2,8 +2,6 @@ use std::io::{Read, Write};
 use std::net::TcpStream;
 
 extern crate chrono;
-
-extern crate clap;
 use chrono::prelude::*;
 
 pub fn clock_diff(addr: &str) {

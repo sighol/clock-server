@@ -46,8 +46,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "clock_server"
-version = "0.1.0"
+name = "clock-server"
+version = "0.2.0"
 dependencies = [
  "chrono 0.4.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "clap 2.32.0 (registry+https://github.com/rust-lang/crates.io-index)",
