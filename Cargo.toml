@@ -1,5 +1,5 @@
 [package]
-name = "clock-server"
+name = "clock_server"
 version = "0.1.0"
 authors = ["Sigurd Holsen <sighol@gmail.com>"]
 description = "Simple TCP app that checks that server and client have the same clock"
