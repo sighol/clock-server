@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://km.kongsberg.com/2014/os/manifest"
+    Name="clock-server"
+    PublisherDisplayName="Sigurd Holsen">
+
+  <Package.Services>
+    <Service DisplayName="Clock server"
+             Program="clock-server.exe"
+             Arguments="server 0.0.0.0:9876"
+             FailureMode="RestartApp">
+    </Service>
+  </Package.Services>
+</Package>

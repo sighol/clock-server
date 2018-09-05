@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+    <metadata>
+        <id>clock-server</id>
+        <version>1.0.0</version>
+        <authors>Sigurd Holsen</authors>
+        <owners>Sigurd Holsen</owners>
+        <projectUrl>http://github.com/sighol/clock-server</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Simple TCP app that checks that server and client have the same clock</description>
+        <copyright></copyright>
+        <tags></tags>
+    </metadata>
+</package>
