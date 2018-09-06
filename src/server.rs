@@ -9,6 +9,8 @@ use std::thread;
 extern crate chrono;
 use chrono::prelude::*;
 
+use ntp;
+
 pub fn run_server(addr: &str, is_verbose: bool) {
     println!("Starting tcp server on {}", addr);
     let addr: SocketAddr = SocketAddr::from_str(addr).expect("Invalid address");
@@ -38,7 +40,7 @@ fn handle_client(mut stream: TcpStream, is_verbose: bool) {
     }
 
     loop {
-        let mut read = [0; 10];
+        let mut read = [0u8; 10000];
         match stream.read(&mut read) {
             Ok(n) => {
                 if n == 0 {
@@ -46,11 +48,13 @@ fn handle_client(mut stream: TcpStream, is_verbose: bool) {
                     break;
                 }
 
-                let message = format!("{}", Utc::now().to_rfc3339());
+                let mut input = ntp::NTPHeader::decode(n, &read).expect("Could not decode NTP package");
+                input.transmit_timestamp = ntp::NTPTimestamp::from_datetime(&Utc::now());
 
-                let message_bin = message.as_bytes();
+                let message = input.encode().expect("Could not encode NTP package");
+
                 stream
-                    .write(&message_bin)
+                    .write(&message)
                     .expect("Could not write response");
             }
             Err(err) => {

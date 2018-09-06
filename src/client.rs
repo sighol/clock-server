@@ -4,12 +4,23 @@ use std::net::TcpStream;
 extern crate chrono;
 use chrono::prelude::*;
 
+use ntp;
+
+pub fn ntp_header() -> ntp::NTPHeader {
+    let mut data = ntp::NTPHeader::new();
+    data.stratum(3);
+    data.origin_timestamp = ntp::NTPTimestamp::from_datetime(&Utc::now());
+    data
+}
+
 pub fn clock_diff(addr: &str) {
     match TcpStream::connect(addr) {
         Ok(mut stream) => {
             println!("Connected to {}", addr);
 
-            let msg = [0; 10];
+            let packet = ntp_header();
+
+            let msg = packet.encode().expect("Encode package");
 
             let start = Utc::now();
             stream.write(&msg).unwrap();
@@ -18,11 +29,9 @@ pub fn clock_diff(addr: &str) {
             match stream.read(&mut data) {
                 Ok(n) => {
                     let end = Utc::now();
-                    let read_slice = &data[0..n];
-                    let mut vec = vec![];
-                    vec.extend_from_slice(&read_slice);
-                    let str = String::from_utf8(vec).expect("Not utf8");
-                    let server_time = str.parse::<DateTime<Utc>>().expect("Bad time format");
+                    
+                    let packet = ntp::NTPHeader::decode(n, &data).expect("Invalid server time");
+                    let server_time = packet.transmit_timestamp.to_datetime();
 
                     compute_diff(start, end, server_time);
                 }

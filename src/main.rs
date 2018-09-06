@@ -1,9 +1,13 @@
 extern crate clap;
 use clap::{App, Arg, SubCommand};
 
+extern crate byteorder;
 extern crate chrono;
+extern crate time;
 
 mod client;
+mod error;
+mod ntp;
 mod server;
 
 fn main() {
@@ -21,14 +25,11 @@ fn main() {
                         .long("verbose")
                         .help("Verbose output"),
                 ),
-        )
-        .subcommand(
+        ).subcommand(
             SubCommand::with_name("client")
                 .about("start client")
                 .arg(Arg::with_name("address").takes_value(true).index(1)),
-        )
-        .get_matches();
-
+        ).get_matches();
 
     let default_address = "127.0.0.1:8080";
 

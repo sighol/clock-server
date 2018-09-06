@@ -7,3 +7,5 @@ description = "Simple TCP app that checks that server and client have the same c
 [dependencies]
 chrono = "*"
 clap = "*"
+byteorder = "*"
+time = "*"
