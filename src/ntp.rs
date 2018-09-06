@@ -44,7 +44,7 @@ pub struct NTPHeader {
     leap: u8,
     version: u8,
     mode: u8,
-    stratum: u8,
+    pub stratum: u8,
     poll: u8,
     precision: u8,
     root_delay: u32,

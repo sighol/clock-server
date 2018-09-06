@@ -12,9 +12,12 @@ use chrono::prelude::*;
 use ntp;
 
 pub fn run_server_udp(addr: &str, is_verbose: bool) {
+    
     use std::mem::size_of;
     use std::net::UdpSocket;
     let socket = UdpSocket::bind(addr).expect("Could not bind to UDP socket");
+
+    println!("Starting NTP server on {}", addr);
 
     loop {
         let mut buffer = [0u8; size_of::<ntp::NTPHeader>()];
@@ -23,6 +26,7 @@ pub fn run_server_udp(addr: &str, is_verbose: bool) {
                 let mut packet = ntp::NTPHeader::decode(n, &buffer).expect("Could not decode");
                 packet.receive_timestamp = ntp::NTPTimestamp::from_datetime(&Utc::now());
                 packet.transmit_timestamp = ntp::NTPTimestamp::from_datetime(&Utc::now());
+                packet.stratum = 8;
                 let msg = packet.encode().expect("Could not encode");
                 socket.send_to(&msg, addr).expect("Could not send");
                 if is_verbose {
