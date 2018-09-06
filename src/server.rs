@@ -12,7 +12,6 @@ use chrono::prelude::*;
 use ntp;
 
 pub fn run_server_udp(addr: &str, is_verbose: bool) {
-    
     use std::mem::size_of;
     use std::net::UdpSocket;
     let socket = UdpSocket::bind(addr).expect("Could not bind to UDP socket");

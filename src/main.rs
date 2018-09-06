@@ -17,8 +17,12 @@ fn main() {
         .subcommand(
             SubCommand::with_name("server")
                 .about("start server")
-                .arg(Arg::with_name("address").takes_value(true).index(1))
                 .arg(
+                    Arg::with_name("address")
+                        .takes_value(true)
+                        .index(1)
+                        .help("NTP server and port"),
+                ).arg(
                     Arg::with_name("verbose")
                         .short("v")
                         .long("verbose")
@@ -27,12 +31,22 @@ fn main() {
         ).subcommand(
             SubCommand::with_name("client")
                 .about("start client")
-                .arg(Arg::with_name("address").takes_value(true).index(1))
                 .arg(
+                    Arg::with_name("address")
+                        .takes_value(true)
+                        .index(1)
+                        .help("Address with port to NTP server"),
+                ).arg(
                     Arg::with_name("verbose")
                         .short("v")
                         .long("verbose")
                         .help("Verbose output"),
+                ).arg(
+                    Arg::with_name("repeat")
+                        .takes_value(true)
+                        .short("r")
+                        .long("repeat")
+                        .help("Number of requests to send. Performance testing only"),
                 ),
         ).get_matches();
 
@@ -43,7 +57,17 @@ fn main() {
             .value_of("address")
             .unwrap_or(default_address);
         let is_verbose = client_matches.is_present("verbose");
-        client::clock_diff_udp(addr, is_verbose);
+        let repeat_count = client_matches
+            .value_of("repeat")
+            .map(|x| x.parse::<i32>().expect("Bad repeat count"))
+            .unwrap_or(1);
+        for i in 0..repeat_count {
+            if repeat_count > 1 {
+                println!("Repeat: {}", i)
+            }
+
+            client::clock_diff_udp(addr, is_verbose);
+        }
     }
 
     if let Some(server_matches) = matches.subcommand_matches("server") {
