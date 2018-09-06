@@ -4,11 +4,10 @@ use byteorder::{BigEndian, ReadBytesExt, WriteBytesExt};
 use chrono::{DateTime, Utc};
 use error;
 use std::io;
-use time::Timespec;
 
 const NTP_CLIENT: u8 = 3;
 const NTP_HEADER_SIZE: usize = 48; // 12 words
-const NTP_TO_UNIX_EPOCH: i64 = 2208988800;
+const NTP_TO_UNIX_EPOCH: i64 = 2_208_988_800;
 
 const LEAP_SHIFT: i32 = 6;
 const VERSION_SHIFT: i32 = 3;
@@ -20,20 +19,13 @@ pub struct NTPTimestamp {
 }
 
 impl NTPTimestamp {
-    pub fn as_timespec(&self) -> Timespec {
-        Timespec {
-            sec: (self.seconds as i64) - NTP_TO_UNIX_EPOCH,
-            nsec: (((self.fraction as f64) / 2f64.powi(32)) / 1e-9) as i32,
-        }
-    }
-
     pub fn from_datetime(dt: &DateTime<Utc>) -> NTPTimestamp {
         use std::u32;
         let s = dt.timestamp() as u32;
         let fraction =
             (dt.timestamp_subsec_nanos() as f64 * (u32::MAX as f64 / 1_000_000_000.0)) as u32;
         NTPTimestamp {
-            seconds: s,
+            seconds: s + (NTP_TO_UNIX_EPOCH as u32),
             fraction: fraction,
         }
     }
@@ -42,8 +34,8 @@ impl NTPTimestamp {
         use chrono::TimeZone;
         use std::u32;
         let nanos = (self.fraction as f64 * (1_000_000_000.0 / u32::MAX as f64)) as u32;
-        let seconds = self.seconds;
-        Utc.timestamp(seconds as i64, nanos)
+        let seconds = self.seconds as i64 - NTP_TO_UNIX_EPOCH;
+        Utc.timestamp(seconds, nanos)
     }
 }
 
@@ -93,10 +85,6 @@ impl NTPHeader {
                 fraction: 0,
             },
         }
-    }
-
-    pub fn stratum(&mut self, stratum: u8) {
-        self.stratum = stratum;
     }
 
     pub fn encode(&self) -> Result<Vec<u8>, error::Error> {
@@ -154,7 +142,7 @@ impl NTPHeader {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use chrono::{DateTime, Utc, Duration};
+    use chrono::{Duration, Utc};
     use std::u32;
     #[test]
     fn from_datetime() {

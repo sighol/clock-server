@@ -3,7 +3,6 @@ use clap::{App, Arg, SubCommand};
 
 extern crate byteorder;
 extern crate chrono;
-extern crate time;
 
 mod client;
 mod error;
@@ -28,7 +27,13 @@ fn main() {
         ).subcommand(
             SubCommand::with_name("client")
                 .about("start client")
-                .arg(Arg::with_name("address").takes_value(true).index(1)),
+                .arg(Arg::with_name("address").takes_value(true).index(1))
+                .arg(
+                    Arg::with_name("verbose")
+                        .short("v")
+                        .long("verbose")
+                        .help("Verbose output"),
+                ),
         ).get_matches();
 
     let default_address = "127.0.0.1:8080";
@@ -37,7 +42,8 @@ fn main() {
         let addr = client_matches
             .value_of("address")
             .unwrap_or(default_address);
-        client::clock_diff(addr);
+        let is_verbose = client_matches.is_present("verbose");
+        client::clock_diff_udp(addr, is_verbose);
     }
 
     if let Some(server_matches) = matches.subcommand_matches("server") {
@@ -46,6 +52,6 @@ fn main() {
             .unwrap_or(default_address);
         let is_verbose = server_matches.is_present("verbose");
 
-        server::run_server(addr, is_verbose);
+        server::run_server_udp(addr, is_verbose);
     }
 }

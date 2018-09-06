@@ -8,12 +8,36 @@ use ntp;
 
 pub fn ntp_header() -> ntp::NTPHeader {
     let mut data = ntp::NTPHeader::new();
-    data.stratum(3);
     data.origin_timestamp = ntp::NTPTimestamp::from_datetime(&Utc::now());
     data
 }
 
-pub fn clock_diff(addr: &str) {
+pub fn clock_diff_udp(addr: &str, is_verbose: bool) {
+    use std::mem::size_of;
+    use std::net::UdpSocket;
+
+    let socket = UdpSocket::bind("0.0.0.0:0").expect("Could not start udp socet");
+    let send_time = Utc::now();
+    let to_send = ntp_header();
+    let msg = to_send.encode().expect("Bad encoded package");
+    socket.send_to(&msg, addr).expect("Could not send");
+
+    let mut bytes = [0u8; size_of::<ntp::NTPHeader>()];
+    let n = socket.recv(&mut bytes).expect("Could not receive");
+    let packet = ntp::NTPHeader::decode(n, &bytes).expect("Could not decode");
+    let recv_time = Utc::now();
+    if is_verbose {
+        println!("Received NTP datagram: {:#?}", packet);
+    }
+    compute_diff(
+        send_time,
+        recv_time,
+        packet.transmit_timestamp.to_datetime(),
+    );
+}
+
+#[allow(dead_code)]
+pub fn clock_diff_tcp(addr: &str) {
     match TcpStream::connect(addr) {
         Ok(mut stream) => {
             println!("Connected to {}", addr);
@@ -29,7 +53,7 @@ pub fn clock_diff(addr: &str) {
             match stream.read(&mut data) {
                 Ok(n) => {
                     let end = Utc::now();
-                    
+
                     let packet = ntp::NTPHeader::decode(n, &data).expect("Invalid server time");
                     let server_time = packet.transmit_timestamp.to_datetime();
 
@@ -52,15 +76,17 @@ pub fn compute_diff(
     server_time: DateTime<Utc>,
 ) {
     let duration = receive_time - send_time;
-    println!("now:         {}", receive_time);
-    println!("server time: {}", server_time);
-    println!("send time: {}", format_duration(duration));
+    println!("Send time:    {}", send_time);
+    println!("server time:  {}", server_time);
+    println!("receive time: {}", receive_time);
+
+    println!("\ntransfer duration: {}", format_duration(duration));
 
     let real_server_time = server_time + duration / 2;
 
     let time_diff = receive_time - real_server_time;
 
-    println!("time diff: {}", format_duration(time_diff));
+    println!("\ntime diff: {}", format_duration(time_diff));
 }
 
 fn format_duration(dur: chrono::Duration) -> String {

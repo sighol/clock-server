@@ -1,6 +1,6 @@
 [package]
 name = "clock-server"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["Sigurd Holsen <sighol@gmail.com>"]
 description = "Simple TCP app that checks that server and client have the same clock"
 
@@ -8,4 +8,3 @@ description = "Simple TCP app that checks that server and client have the same c
 chrono = "*"
 clap = "*"
 byteorder = "*"
-time = "*"
