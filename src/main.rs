@@ -4,6 +4,8 @@ use clap::{App, Arg, SubCommand};
 extern crate byteorder;
 extern crate chrono;
 
+use chrono::Utc;
+
 mod client;
 mod error;
 mod ntp;
@@ -61,12 +63,19 @@ fn main() {
             .value_of("repeat")
             .map(|x| x.parse::<i32>().expect("Bad repeat count"))
             .unwrap_or(1);
+
+        let now = Utc::now();
         for i in 0..repeat_count {
             if repeat_count > 1 {
                 println!("Repeat: {}", i)
             }
 
             client::clock_diff_udp(addr, is_verbose);
+        }
+        if repeat_count > 1 {
+            let dt = Utc::now() - now;
+            let dt_ms = dt.num_milliseconds();
+            println!("Doing {} requests took {}ms", repeat_count, dt_ms);
         }
     }
 
