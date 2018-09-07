@@ -12,7 +12,7 @@ pub fn ntp_header() -> ntp::NTPHeader {
     data
 }
 
-pub fn clock_diff_udp(addr: &str, is_verbose: bool) {
+pub fn clock_diff_udp(addr: &str, is_verbose: bool) -> Option<chrono::Duration> {
     use std::mem::size_of;
     use std::net::UdpSocket;
 
@@ -29,11 +29,14 @@ pub fn clock_diff_udp(addr: &str, is_verbose: bool) {
     if is_verbose {
         println!("Received NTP datagram: {:#?}", packet);
     }
-    compute_diff(
+
+    let dt = compute_diff(
         send_time,
         recv_time,
         packet.transmit_timestamp.to_datetime(),
     );
+
+    Some(dt)
 }
 
 #[allow(dead_code)]
@@ -74,7 +77,7 @@ pub fn compute_diff(
     send_time: DateTime<Utc>,
     receive_time: DateTime<Utc>,
     server_time: DateTime<Utc>,
-) {
+) -> chrono::Duration {
     let duration = receive_time - send_time;
     println!("Send time:    {}", send_time);
     println!("server time:  {}", server_time);
@@ -87,6 +90,7 @@ pub fn compute_diff(
     let time_diff = receive_time - real_server_time;
 
     println!("\ntime diff: {}", format_duration(time_diff));
+    time_diff
 }
 
 fn format_duration(dur: chrono::Duration) -> String {

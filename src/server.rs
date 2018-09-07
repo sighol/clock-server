@@ -83,7 +83,9 @@ fn handle_client(mut stream: TcpStream, is_verbose: bool) {
 
                 let message = input.encode().expect("Could not encode NTP package");
 
-                stream.write_all(&message).expect("Could not write response");
+                stream
+                    .write_all(&message)
+                    .expect("Could not write response");
             }
             Err(err) => {
                 panic!("Failed to read client stream from {}. {}", source, err);

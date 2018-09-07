@@ -65,17 +65,27 @@ fn main() {
             .unwrap_or(1);
 
         let now = Utc::now();
+        let mut durations = vec![];
         for i in 0..repeat_count {
             if repeat_count > 1 {
                 println!("Repeat: {}", i)
             }
 
-            client::clock_diff_udp(addr, is_verbose);
+            let dur = client::clock_diff_udp(addr, is_verbose).expect("Could not get clock diff");
+            durations.push(dur);
         }
         if repeat_count > 1 {
             let dt = Utc::now() - now;
             let dt_ms = dt.num_milliseconds();
             println!("Doing {} requests took {}ms", repeat_count, dt_ms);
+
+            let mut total_time = chrono::Duration::seconds(0);
+            for dur in durations {
+                total_time = total_time + dur;
+            }
+
+            let mean_time = total_time / repeat_count;
+            println!("Mean time diff: {}ms", mean_time.num_milliseconds());
         }
     }
 
