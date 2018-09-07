@@ -47,7 +47,7 @@ pub fn clock_diff_tcp(addr: &str) {
             let msg = packet.encode().expect("Encode package");
 
             let start = Utc::now();
-            stream.write(&msg).unwrap();
+            stream.write_all(&msg).unwrap();
 
             let mut data = [0; 4096]; // using 6 byte buffer
             match stream.read(&mut data) {

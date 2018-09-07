@@ -26,7 +26,7 @@ impl NTPTimestamp {
             (dt.timestamp_subsec_nanos() as f64 * (u32::MAX as f64 / 1_000_000_000.0)) as u32;
         NTPTimestamp {
             seconds: s + (NTP_TO_UNIX_EPOCH as u32),
-            fraction: fraction,
+            fraction,
         }
     }
 
@@ -159,5 +159,12 @@ mod tests {
         let diff = dt - dt_again;
         let max_diff = Duration::nanoseconds(10);
         assert!(diff < max_diff);
+    }
+
+    #[test]
+    fn ntp_header_size() {
+        use std::mem::size_of;
+        let size = size_of::<NTPHeader>();
+        assert_eq!(52, size);
     }
 }
