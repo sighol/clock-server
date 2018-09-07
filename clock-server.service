@@ -1,0 +1,11 @@
+[Unit]
+Description=Simple NTP clock server that may not work
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/timewatch/clock-server
+ExecStart=/home/timewatch/clock-server/target/release/clock-server server 0.0.0.0:9876
+Restart=on-failure # or always, on-abort, etc
+
