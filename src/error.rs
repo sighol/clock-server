@@ -28,17 +28,10 @@ impl fmt::Display for Error {
 }
 
 impl error::Error for Error {
-    fn description(&self) -> &str {
-        match *self {
-            Error::UnexpectedSize(_, _) => "Unexpected number of bytes in NTP datagram",
-            Error::Io(ref err) => error::Error::description(err),
-        }
-    }
-
-    fn cause(&self) -> Option<&error::Error> {
+    fn source(&self) -> Option<&(dyn error::Error + 'static)> {
         match *self {
             Error::UnexpectedSize(_, _) => None,
-            Error::Io(ref err) => err.cause(),
+            Error::Io(ref err) => err.source(),
         }
     }
 }

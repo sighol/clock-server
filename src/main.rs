@@ -1,8 +1,4 @@
-extern crate clap;
 use clap::{App, Arg, SubCommand};
-
-extern crate byteorder;
-extern crate chrono;
 
 use chrono::Utc;
 

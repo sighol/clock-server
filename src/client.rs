@@ -4,7 +4,7 @@ use std::net::TcpStream;
 extern crate chrono;
 use chrono::prelude::*;
 
-use ntp;
+use crate::ntp;
 
 pub fn ntp_header() -> ntp::NTPHeader {
     let mut data = ntp::NTPHeader::new();

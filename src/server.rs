@@ -9,7 +9,7 @@ use std::thread;
 extern crate chrono;
 use chrono::prelude::*;
 
-use ntp;
+use crate::ntp;
 
 pub fn run_server_udp(addr: &str, is_verbose: bool) {
     use std::mem::size_of;
