@@ -35,7 +35,7 @@ impl NTPTimestamp {
         use std::u32;
         let nanos = (self.fraction as f64 * (1_000_000_000.0 / u32::MAX as f64)) as u32;
         let seconds = self.seconds as i64 - NTP_TO_UNIX_EPOCH;
-        Utc.timestamp(seconds, nanos)
+        Utc.timestamp_opt(seconds, nanos).unwrap()
     }
 }
 

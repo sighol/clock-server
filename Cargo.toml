@@ -6,6 +6,6 @@ description = "Simple TCP app that checks that server and client have the same c
 edition = "2021"
 
 [dependencies]
-chrono = "*"
-clap = "*"
-byteorder = "*"
+chrono = "0.4.6"
+clap = "2.32"
+byteorder = "1.2.6"
